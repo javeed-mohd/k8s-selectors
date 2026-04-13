@@ -1,0 +1,9 @@
+# Creation of pod --> pod is smallest deployable unit in kubernetes. A pod can have one or multiple containers in it. Containers inside pod share same network and storage
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx
+spec:
+  containers:
+  - name: nginx
+    image: nginx
