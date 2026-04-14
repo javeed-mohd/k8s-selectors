@@ -8,12 +8,12 @@ spec:
   containers:
   - name: nginx
     image: nginx
-  # # Asking for VIP room
-  # nodeSelector:
-  #   project: roboshop
-  # # Showing booking confirmation
+  # Asking for VIP room
+  nodeSelector:
+    project: roboshop
+  # Showing booking confirmation
   tolerations:
   - key: "project"
     operator: "Equal"
     value: "roboshop"
-    effect: "NoSchedule"
+    effect: "NoExecute"
