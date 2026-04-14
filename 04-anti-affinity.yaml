@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-anti-affinity
+  labels:
+    env: test
+spec:
+  affinity:
+    nodeAffinity:
+      # Hard Rule -> Labels should match otherwise pod can't be scheduled
+      requiredDuringSchedulingIgnoredDuringExecution:
+        nodeSelectorTerms:
+        - matchExpressions:
+          - key: topology.kubernetes.io/zone
+            operator: NotIn
+            values:
+            - us-east-1c        # Replace with your specified AZ
+          - key: project
+            operator: NotIn
+            values:
+            - amazon
+  containers:
+  - name: nginx
+    image: nginx
+  tolerations:
+  - key: "hardware"
+    operator: "Equal"
+    value: "gpu"
+    effect: "NoExecute"
