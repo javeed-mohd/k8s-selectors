@@ -1,0 +1,37 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-affinity
+  labels:
+    env: test
+spec:
+  affinity:
+    nodeAffinity:
+      # Hard Rule -> Labels should match otherwise pod can't be scheduled
+      requiredDuringSchedulingIgnoredDuringExecution:
+        nodeSelectorTerms:
+        - matchExpressions:
+          - key: topology.kubernetes.io/zone
+            operator: In
+            values:
+            - us-east-1d        # Replace with your specified AZ
+            - us-east-1c        # Replace with your specified AZ
+      # Soft Rule -> If label selectors does not match, kubernetes considers another node to schedule 
+      preferredDuringSchedulingIgnoredDuringExecution:
+      - weight: 100
+        preference:
+          matchExpressions:
+          - key: project
+            operator: In
+            values:
+            - roboshop
+      - weight: 10
+        preference:
+          matchExpressions:
+          - key: project
+            operator: In
+            values:
+            - amazon
+  containers:
+  - name: nginx
+    image: nginx
