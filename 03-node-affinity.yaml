@@ -15,7 +15,7 @@ spec:
             operator: In
             values:
             - us-east-1b        # Replace with your specified AZ
-      #       - us-east-1d        # Replace with your specified AZ
+            - us-east-1d        # Replace with your specified AZ
       # # Soft Rule -> If label selectors does not match, kubernetes considers another node to schedule 
       # preferredDuringSchedulingIgnoredDuringExecution:
       # - weight: 100
