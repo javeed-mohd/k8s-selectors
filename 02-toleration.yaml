@@ -11,7 +11,7 @@ spec:
   # Asking for VIP room
   nodeSelector:
     project: roboshop
-  # Showing booking confirmation
+  # Showing Booking Confirmation
   tolerations:
   - key: "project"
     operator: "Equal"
