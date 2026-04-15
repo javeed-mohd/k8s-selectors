@@ -14,12 +14,11 @@ spec:
           - key: topology.kubernetes.io/zone
             operator: NotIn
             values:
-            - us-east-1b        # Replace with your specified AZ
             - us-east-1d        # Replace with your specified AZ
-          # - key: project
-          #   operator: NotIn
-          #   values:
-          #   - amazon
+          - key: project
+            operator: In
+            values:
+            - amazon
   containers:
   - name: nginx
     image: nginx
