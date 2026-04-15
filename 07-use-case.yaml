@@ -62,7 +62,7 @@ spec:
                   operator: In
                   values:
                   - web-store
-            topologyKey: topology.kubernetes.io/zone
+              topologyKey: topology.kubernetes.io/zone
         podAffinity:
           requiredDuringSchedulingIgnoredDuringExecution:
           - labelSelector:
