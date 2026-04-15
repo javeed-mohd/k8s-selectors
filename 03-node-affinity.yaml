@@ -16,22 +16,22 @@ spec:
             values:
             - us-east-1b        # Replace with your specified AZ
             - us-east-1d        # Replace with your specified AZ
-      # # Soft Rule -> If label selectors does not match, kubernetes considers another node to schedule 
-      # preferredDuringSchedulingIgnoredDuringExecution:
-      # - weight: 100
-      #   preference:
-      #     matchExpressions:
-      #     - key: project
-      #       operator: In
-      #       values:
-      #       - roboshop
-      # - weight: 10
-      #   preference:
-      #     matchExpressions:
-      #     - key: project
-      #       operator: In
-      #       values:
-      #       - amazon
+      # Soft Rule -> If label selectors does not match, kubernetes considers another node to schedule 
+      preferredDuringSchedulingIgnoredDuringExecution:
+      - weight: 100
+        preference:
+          matchExpressions:
+          - key: project
+            operator: In
+            values:
+            - roboshop
+      - weight: 10
+        preference:
+          matchExpressions:
+          - key: project
+            operator: In
+            values:
+            - amazon
   containers:
   - name: nginx
     image: nginx
