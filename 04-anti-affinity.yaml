@@ -15,6 +15,7 @@ spec:
             operator: NotIn
             values:
             - us-east-1b        # Replace with your specified AZ
+            - us-east-1d        # Replace with your specified AZ
           # - key: project
           #   operator: NotIn
           #   values:
