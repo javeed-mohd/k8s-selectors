@@ -15,9 +15,14 @@ spec:
             operator: NotIn
             values:
             - us-east-1d        # Replace with your specified AZ
-          # It will be scheduled in mentioned node
+          # # It will be scheduled in mentioned node
+          # - key: project
+          #   operator: In
+          #   values:
+          #   - amazon
+          # It will not be scheduled in mentioned node
           - key: project
-            operator: In
+            operator: NotIn
             values:
             - amazon
   containers:
